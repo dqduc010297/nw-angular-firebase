@@ -1,0 +1,36 @@
+<form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Title</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="Please input Title!">
+            <input nz-input formControlName="title" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Price</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="Please input Price!">
+            <input nz-input formControlName="price" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Quantity</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="Please input Quantity!">
+            <input nz-input formControlName="quantity" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Image</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input id="file-input" type="file" [multiple]="false" [accept]="'image/jpeg, image/png'"
+                (change)="uploadImage(uploadButton.files)" #uploadButton>
+            <nz-progress [nzPercent]="uploadPercent | async"></nz-progress>
+            <img nz-image width="200px" height="200px" style="margin-top: 20px;" [nzSrc]="uploadedImage"
+                *ngIf="uploadedImage" alt="" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-control [nzSpan]="14" [nzOffset]="4">
+            <button nz-button nzType="primary">Submit</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

@@ -1,0 +1,7 @@
+[nz-form]:not(.ant-form-inline):not(.ant-form-vertical) {
+    max-width: 600px;
+}
+:host ::ng-deep .avatar-uploader > .ant-upload {
+    width: 200px;
+    height: 200px;
+}

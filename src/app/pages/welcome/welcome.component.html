@@ -1,0 +1,20 @@
+<nz-list nzGrid>
+    <div nz-row [nzGutter]="16">
+        <div nz-col [nzXXl]="4" [nzXl]="4" [nzLg]="6" [nzMd]="6" [nzSm]="12" [nzXs]="24" *ngFor="let item of data">
+            <nz-list-item>
+                <nz-card style="text-align: center;">
+                    <img nz-image width="128px" height="128px" [nzSrc]="item.image" alt="" />
+                    <p> {{item.title}} </p>
+                    <p class="price"> {{item.price | currency: 'VND'}}
+                        <nz-badge [nzCount]="item.quantity" nzStandalone>
+                        </nz-badge>
+                    </p>
+                    <button nz-button nzType="primary" nzShape="round" (click)="buy(item)"
+                        [disabled]="item.quantity < 1">
+                        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>Buy
+                    </button>
+                </nz-card>
+            </nz-list-item>
+        </div>
+    </div>
+</nz-list>
